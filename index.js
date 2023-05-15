@@ -1,21 +1,14 @@
-import express, { json } from 'express'
-import cors from 'cors'
-import mongoose from 'mongoose'
-import dotenv from 'dotenv';
+import express, { json }    from 'express'
+import cors                 from 'cors'
+import mongoose             from 'mongoose'
+import dotenv               from 'dotenv';
+
+import router               from './src/routes/index.js'
+import { url, options }     from './config/db.js';
 
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
-
-import router from './src/routes/index.js'
-
-import { url } from './config/db.js';
-
-const options = {
-    useNewUrlParser: true,
-    // connectTimeoutMS: 10000,
-    directConnection: true
-};
 
 const APP_PORT = process.env.NODE_DOCKER_PORT || 8080;
 
